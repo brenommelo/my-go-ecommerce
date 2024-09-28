@@ -4,12 +4,12 @@ import (
 	"log"
 	"os"
 
+	configs "github.com/brenommelo/my-go-ecommerce/config"
+	"github.com/brenommelo/my-go-ecommerce/db"
 	mysqlDriver "github.com/go-sql-driver/mysql"
 	"github.com/golang-migrate/migrate/v4"
 	mysqlMigrate "github.com/golang-migrate/migrate/v4/database/mysql"
 	_ "github.com/golang-migrate/migrate/v4/source/file"
-	"github.com/sikozonpc/ecom/configs"
-	"github.com/sikozonpc/ecom/db"
 )
 
 func main() {
@@ -23,7 +23,7 @@ func main() {
 		ParseTime:            true,
 	}
 
-	db, err := db.NewMySQLStorage(cfg)
+	db, err := db.NewMysqlStorage(cfg)
 	if err != nil {
 		log.Fatal(err)
 	}
